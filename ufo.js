@@ -45,17 +45,29 @@ function ufo(x, y, s, r) {
   fill(0, 0, 0);
 
   //display
-  noStroke();
-  fill(50, 50, 50);
-  rect(570, 170, 90, 50, 3);
-
-  //numbers on the display
-  text(123, 123, "hei");
-
-  //wheel of controlling time
   push();
-  fill(15, 15, 14);
-  ellipse(615, 340, 50);
+  fill(50, 50, 50);
+  rect(570, 140, 90, 50, 3);
+  pop();
+
+  //control panel
+  push();
+  fill(150, 150, 150);
+
+  //keys
+  //upper row
+  rect(570, 230, 90, 10, 60);
+  line(615, 230, 615, 240);
+  //lower row
+  rect(570, 270, 90, 10, 60);
+  line(615, 270, 615, 280);
+
+  //wheel
+  ellipse(615, 330, 50);
+
+  //opener
+  rect(570, 370, 90, 40, 3);
+
   pop();
 
   pop();
