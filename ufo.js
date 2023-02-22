@@ -44,15 +44,20 @@ function ufo(x, y, s, r) {
   endShape();
   fill(0, 0, 0);
 
+  //control panel
+  push();
+  fill(150, 150, 150);
+
   //display
   push();
   fill(50, 50, 50);
   rect(570, 140, 90, 50, 3);
-  pop();
 
-  //control panel
-  push();
-  fill(150, 150, 150);
+  fill(200, 100, 20);
+  textSize(22);
+  textStyle(BOLD);
+  text("13:37", 587, 173);
+  pop();
 
   //keys
   //upper row
@@ -67,7 +72,6 @@ function ufo(x, y, s, r) {
 
   //opener
   rect(570, 370, 90, 40, 3);
-
   pop();
 
   pop();
