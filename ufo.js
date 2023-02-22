@@ -1,8 +1,11 @@
-function ufo(x, y, s, r) {
+function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   //microwave
   push();
-  translate(x, y);
-  scale(s);
+  translate(xMicro, yMicro);
+  translate(xMicro + 425, yMicro + 275);
+  rotate(rotateMicro);
+  scale(sMicro);
+  translate(xMicro - 425, yMicro - 275);
   //body microwave
   push();
   background(255, 255, 255);
@@ -77,4 +80,4 @@ function ufo(x, y, s, r) {
   pop();
 }
 
-ufo(0, 0, 1, 0);
+ufo(0, 0, 0.4, PI / 2);
