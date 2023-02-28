@@ -7,8 +7,8 @@ function kitchen() {
   fill(231, 236, 239);
   rect(0, height / 2, width, height / 2);
 
-  fill(0, 0, 0);
-  rect(0, height / 2, width, 52);
+  fill(28, 17, 10);
+  rect(0, height / 2, width, 30);
 }
 
 kitchen();

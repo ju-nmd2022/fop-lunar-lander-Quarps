@@ -80,4 +80,4 @@ function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   pop();
 }
 
-ufo(0, 0, 0.4, PI / 2);
+ufo(0, 0, 1, PI / 2);
