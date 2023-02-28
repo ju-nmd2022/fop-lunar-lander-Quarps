@@ -43,3 +43,7 @@ function kitchen() {
 }
 
 kitchen();
+background(50, 50, 50, 100);
+fill(0, 0, 0);
+textSize(50);
+text("Welcome the EPIC Game", width / 2 - 300, 450, 700);
