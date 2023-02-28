@@ -1,14 +1,45 @@
 function kitchen() {
-  background(255, 255, 255);
+  background(246, 232, 231);
+  strokeWeight(2);
+  let y = 600;
+
+  //background
+  fill(234, 216, 216);
+
+  //window
+  fill(240, 240, 240);
+  rect(630 + 50, y - 720, 640, 790);
+  fill(223, 239, 243);
+  rect(650 + 50, y - 700, 600, 750);
+
+  //countertop
+  fill(191, 134, 115);
+  rect(0, y + 300, width, 150);
+  rect(0, y + 450, width, 25);
+
+  //cabinets
+  fill(240, 240, 240);
+  //cabinet rightside
+  rect(-1, y + 475, width / 2, 1000);
+  rect(100, y + 560, width / 2 - 200, 1000 - 100, 5);
+  //cabinet leftside
+  rect(width / 2 - 1, y + 475, width / 2, 1000);
+  rect(width / 2 + 100, y + 560, width / 2 - 200, 1000 - 100, 5);
+
+  //shadow
+  push();
   noStroke();
-  fill(184, 139, 74);
-  rect(0, 0, width, height / 2);
+  fill(100, 100, 100, 100);
+  rect(0, y + 476, width, 10);
+  pop();
 
-  fill(231, 236, 239);
-  rect(0, height / 2, width, height / 2);
+  //handles
+  fill(113, 121, 126);
 
-  fill(28, 17, 10);
-  rect(0, height / 2, width, 30);
+  //leftside handle
+  rect(width / 2 - 50, y + 500, 15, 100);
+  //rightside handle
+  rect(width / 2 + 35, y + 500, 15, 100);
 }
 
 kitchen();
