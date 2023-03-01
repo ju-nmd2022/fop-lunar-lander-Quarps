@@ -1,24 +1,17 @@
 function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   //microwave
   push();
-  translate(xMicro, yMicro);
-  translate(xMicro + 425, yMicro + 275);
-  rotate(rotateMicro);
-  scale(sMicro);
-  translate(xMicro - 425, yMicro - 275);
   //body microwave
   push();
   background(255, 255, 255);
   noStroke();
-  translate(350, 250);
   fill(100, 100, 100);
-  rect(-175, -125, 500, 300, 10);
+  rect(xMicro + 75, yMicro + 25, 500, 300, 10);
 
   //glas on the microwave
   stroke(0, 0, 0);
   fill(50, 50, 50);
-  rect(-160, -110, 350, 270, 10);
-  translate(0, 0);
+  rect(190, 140, 350, 270, 10);
   pop();
 
   //reflection of the glas (main & side)
@@ -80,4 +73,4 @@ function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   pop();
 }
 
-ufo(0, 0, 1, 0);
+ufo(100, 100, 1, 0);

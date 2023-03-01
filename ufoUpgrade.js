@@ -1,4 +1,4 @@
-function ufo(xMicro, yMicro, sMicro, rotateMicro) {
+function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro) {
   //microwave
   push();
   translate(xMicro, yMicro);
