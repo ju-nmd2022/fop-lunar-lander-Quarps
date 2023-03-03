@@ -1,17 +1,19 @@
 function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   //microwave
   push();
+  translate(xMicro + 325, yMicro + 175);
+  scale(sMicro);
+  rotate(rotateMicro);
+  translate(-xMicro - 325, -yMicro - 175);
   //body microwave
   push();
-  background(255, 255, 255);
-  noStroke();
   fill(100, 100, 100);
   rect(xMicro + 75, yMicro + 25, 500, 300, 10);
 
   //glas on the microwave
   stroke(0, 0, 0);
   fill(50, 50, 50);
-  rect(190, 140, 350, 270, 10);
+  rect(xMicro + 90, yMicro + 40, 350, 270, 10);
   pop();
 
   //reflection of the glas (main & side)
@@ -19,24 +21,24 @@ function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   push();
   beginShape();
   stroke(205, 205, 205);
-  vertex(410, 141);
-  vertex(270, 409);
-  vertex(325, 409);
-  vertex(460, 141);
+  vertex(xMicro + 310, yMicro + 41);
+  vertex(xMicro + 170, yMicro + 309);
+  vertex(xMicro + 225, yMicro + 309);
+  vertex(xMicro + 360, yMicro + 41);
   endShape();
   //side reflection
   beginShape();
-  vertex(489, 141);
-  vertex(356, 409);
-  vertex(370, 409);
-  vertex(500, 141);
+  vertex(xMicro + 389, yMicro + 41);
+  vertex(xMicro + 256, yMicro + 309);
+  vertex(xMicro + 270, yMicro + 309);
+  vertex(xMicro + 400, yMicro + 41);
   endShape();
   pop();
 
   //divider, line
   beginShape();
-  vertex(555, 126);
-  vertex(555, 424);
+  vertex(xMicro + 455, yMicro + 26);
+  vertex(xMicro + 455, yMicro + 324);
   endShape();
   fill(0, 0, 0);
 
@@ -47,30 +49,30 @@ function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   //display
   push();
   fill(50, 50, 50);
-  rect(570, 140, 90, 50, 3);
+  rect(xMicro + 470, yMicro + 40, 90, 50, 3);
 
   fill(200, 100, 20);
   textSize(22);
   textStyle(BOLD);
-  text("13:37", 587, 173);
+  text("13:37", xMicro + 487, yMicro + 73);
   pop();
 
   //keys
   //upper row
-  rect(570, 230, 90, 10, 60);
-  line(615, 230, 615, 240);
+  rect(xMicro + 470, yMicro + 130, 90, 10, 60);
+  line(xMicro + 515, yMicro + 130, xMicro + 515, yMicro + 140);
   //lower row
-  rect(570, 270, 90, 10, 60);
-  line(615, 270, 615, 280);
+  rect(xMicro + 470, yMicro + 170, 90, 10, 60);
+  line(xMicro + 515, yMicro + 170, xMicro + 515, 280);
 
   //wheel
-  ellipse(615, 330, 50);
+  ellipse(xMicro + 515, yMicro + 230, 50);
 
   //opener
-  rect(570, 370, 90, 40, 3);
+  rect(xMicro + 470, yMicro + 270, 90, 40, 3);
   pop();
 
   pop();
 }
 
-ufo(100, 100, 1, 0);
+ufo(200, 200, 1, 0);
