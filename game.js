@@ -228,17 +228,22 @@ function startScreen() {
   text("Click space to start!!", width / 2 - 565, 200, 400);
 }
 
-let ufoAcceleration = 300;
-let kitchenAcceleration = 350;
+let ufoSpeed = 300;
+let kitchenAcceleration = 300;
 
 function gameScreen() {
   kitchen(kitchenAcceleration);
-  ufoUpgrade(700, ufoAcceleration, 1, PI / 2);
-  console.log(ufoAcceleration);
-  if (ufoAcceleration > -50) {
-    kitchenAcceleration += 3;
-    ufoAcceleration -= 2;
+  ufoUpgrade(700, ufoSpeed, 1, PI / 2);
+  console.log(ufoSpeed);
+  if (ufoSpeed > -100) {
+    kitchenAcceleration += 4;
+    ufoSpeed -= 2;
   }
+
+  //if (ufoSpeed < -100) {
+  //  kitchenAcceleration -= 3;
+  //  ufoSpeed += 10;
+  //}
 }
 
 function endScreen() {
