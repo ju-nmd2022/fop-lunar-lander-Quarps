@@ -1,49 +1,44 @@
 function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   //microwave
   push();
-  translate(xMicro, yMicro);
-  translate(xMicro + 425, yMicro + 275);
-  rotate(rotateMicro);
+  translate(xMicro + 325, yMicro + 175);
   scale(sMicro);
-  translate(xMicro - 425, yMicro - 275);
-
+  rotate(rotateMicro);
+  translate(-xMicro - 325, -yMicro - 175);
   //body microwave
   push();
-  translate(350, 250);
   fill(100, 100, 100);
-  rect(-175, -125, 500, 300, 10);
+  rect(xMicro + 75, yMicro + 25, 500, 300, 10);
 
   //glas on the microwave
   stroke(0, 0, 0);
   fill(50, 50, 50);
-  rect(-160, -110, 350, 270, 10);
-  translate(0, 0);
+  rect(xMicro + 90, yMicro + 40, 350, 270, 10);
   pop();
 
   //reflection of the glas (main & side)
   //main reflection
   push();
   beginShape();
-  fill(205, 205, 205);
-  noStroke();
-  vertex(410, 141);
-  vertex(270, 409);
-  vertex(325, 409);
-  vertex(460, 141);
+  stroke(205, 205, 205);
+  vertex(xMicro + 310, yMicro + 41);
+  vertex(xMicro + 170, yMicro + 309);
+  vertex(xMicro + 225, yMicro + 309);
+  vertex(xMicro + 360, yMicro + 41);
   endShape();
   //side reflection
   beginShape();
-  vertex(489, 141);
-  vertex(356, 409);
-  vertex(370, 409);
-  vertex(500, 141);
+  vertex(xMicro + 389, yMicro + 41);
+  vertex(xMicro + 256, yMicro + 309);
+  vertex(xMicro + 270, yMicro + 309);
+  vertex(xMicro + 400, yMicro + 41);
   endShape();
   pop();
 
   //divider, line
   beginShape();
-  vertex(555, 126);
-  vertex(555, 424);
+  vertex(xMicro + 455, yMicro + 26);
+  vertex(xMicro + 455, yMicro + 324);
   endShape();
   fill(0, 0, 0);
 
@@ -54,95 +49,94 @@ function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   //display
   push();
   fill(50, 50, 50);
-  rect(570, 140, 90, 50, 3);
+  rect(xMicro + 470, yMicro + 40, 90, 50, 3);
 
   fill(200, 100, 20);
   textSize(22);
   textStyle(BOLD);
-  text("13:37", 587, 173);
+  text("13:37", xMicro + 487, yMicro + 73);
   pop();
 
   //keys
   //upper row
-  rect(570, 230, 90, 10, 60);
-  line(615, 230, 615, 240);
+  rect(xMicro + 470, yMicro + 130, 90, 10, 60);
+  line(xMicro + 515, yMicro + 130, xMicro + 515, yMicro + 140);
   //lower row
-  rect(570, 270, 90, 10, 60);
-  line(615, 270, 615, 280);
+  rect(xMicro + 470, yMicro + 170, 90, 10, 60);
+  line(xMicro + 515, yMicro + 170, xMicro + 515, yMicro + 180);
 
   //wheel
-  ellipse(615, 330, 50);
+  ellipse(xMicro + 515, yMicro + 230, 50);
 
   //opener
-  rect(570, 370, 90, 40, 3);
+  rect(xMicro + 470, yMicro + 270, 90, 40, 3);
   pop();
 
   pop();
 }
 
+ufo(200, 200, 1, 0);
+
 function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro) {
   //microwave
+
   push();
-  translate(xMicro, yMicro);
-  translate(xMicro + 425, yMicro + 275);
+  translate(xMicro + 325, yMicro + 175);
   rotate(rotateMicro);
   scale(sMicro);
-  translate(xMicro - 425, yMicro - 275);
+  translate(-xMicro - 325, -yMicro - 175);
   //upgrade
   //wings
   beginShape();
   fill(255, 255, 255);
-  vertex(200, 275);
-  vertex(500, 65);
-  vertex(500, 485);
-  vertex(200, 275);
+  vertex(xMicro + 100, yMicro + 175);
+  vertex(xMicro + 400, yMicro - 35);
+  vertex(xMicro + 400, yMicro + 385);
+  vertex(xMicro + 100, yMicro + 175);
   endShape();
   //jet engine
   beginShape();
-  vertex(675, 275);
-  vertex(675, 275 - 50);
-  vertex(700, 275 - 30);
-  vertex(700, 275 + 30);
-  vertex(675, 275 + 50);
-  vertex(675, 275);
+  vertex(xMicro + 575, yMicro + 175);
+  vertex(xMicro + 575, yMicro + 175 - 50);
+  vertex(xMicro + 600, yMicro + 175 - 30);
+  vertex(xMicro + 600, yMicro + 175 + 30);
+  vertex(xMicro + 575, yMicro + 175 + 50);
+  vertex(xMicro + 575, yMicro + 175);
   endShape();
   //body microwave
   push();
-  translate(350, 250);
   fill(100, 100, 100);
-  rect(-175, -125, 500, 300, 10);
+  rect(xMicro + 75, yMicro + 25, 500, 300, 10);
 
   //glas on the microwave
   stroke(0, 0, 0);
   fill(50, 50, 50);
-  rect(-160, -110, 350, 270, 10);
-  translate(0, 0);
+  rect(xMicro + 90, yMicro + 40, 350, 270, 10);
   pop();
 
   //reflection of the glas (main & side)
   //main reflection
   push();
   beginShape();
-  fill(205, 205, 205);
-  noStroke();
-  vertex(410, 141);
-  vertex(270, 409);
-  vertex(325, 409);
-  vertex(460, 141);
+  stroke(205, 205, 205);
+  vertex(xMicro + 310, yMicro + 41);
+  vertex(xMicro + 170, yMicro + 309);
+  vertex(xMicro + 225, yMicro + 309);
+  vertex(xMicro + 360, yMicro + 41);
   endShape();
   //side reflection
   beginShape();
-  vertex(489, 141);
-  vertex(356, 409);
-  vertex(370, 409);
-  vertex(500, 141);
+  vertex(xMicro + 389, yMicro + 41);
+  vertex(xMicro + 256, yMicro + 309);
+  vertex(xMicro + 270, yMicro + 309);
+  vertex(xMicro + 400, yMicro + 41);
   endShape();
   pop();
 
   //divider, line
   beginShape();
-  vertex(555, 126);
-  vertex(555, 424);
+  vertex(xMicro + 455, yMicro + 26);
+  vertex(xMicro + 455, yMicro + 324);
   endShape();
   fill(0, 0, 0);
 
@@ -153,36 +147,35 @@ function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro) {
   //display
   push();
   fill(50, 50, 50);
-  rect(570, 140, 90, 50, 3);
+  rect(xMicro + 470, yMicro + 40, 90, 50, 3);
 
   fill(200, 100, 20);
   textSize(22);
   textStyle(BOLD);
-  text("13:37", 587, 173);
+  text("13:37", xMicro + 487, yMicro + 73);
   pop();
 
   //keys
   //upper row
-  rect(570, 230, 90, 10, 60);
-  line(615, 230, 615, 240);
+  rect(xMicro + 470, yMicro + 130, 90, 10, 60);
+  line(xMicro + 515, yMicro + 130, xMicro + 515, yMicro + 140);
   //lower row
-  rect(570, 270, 90, 10, 60);
-  line(615, 270, 615, 280);
+  rect(xMicro + 470, yMicro + 170, 90, 10, 60);
+  line(xMicro + 515, yMicro + 170, xMicro + 515, yMicro + 180);
 
   //wheel
-  ellipse(615, 330, 50);
+  ellipse(xMicro + 515, yMicro + 230, 50);
 
   //opener
-  rect(570, 370, 90, 40, 3);
+  rect(xMicro + 470, yMicro + 270, 90, 40, 3);
   pop();
 
   pop();
 }
 
-function kitchen() {
+function kitchen(y) {
   background(246, 232, 231);
   strokeWeight(2);
-  let y = 350;
 
   //background
   fill(234, 216, 216);
@@ -225,8 +218,8 @@ function kitchen() {
 
 //states
 function startScreen() {
-  kitchen();
-  ufo(-20, 100, 1, 0);
+  kitchen(350);
+  ufo(20, 430, 1, 0);
   background(50, 50, 50, 100);
   fill(0, 0, 0);
   textSize(50);
@@ -235,12 +228,17 @@ function startScreen() {
   text("Click space to start!!", width / 2 - 565, 200, 400);
 }
 
-let ufoY = 10;
-let ufoX = 190;
+let ufoAcceleration = 300;
+let kitchenAcceleration = 350;
+
 function gameScreen() {
-  kitchen();
-  ufoUpgrade(ufoX, ufoY, 1, PI / 2);
-  ufoY -= 30;
+  kitchen(kitchenAcceleration);
+  ufoUpgrade(700, ufoAcceleration, 1, PI / 2);
+  console.log(ufoAcceleration);
+  if (ufoAcceleration > -50) {
+    kitchenAcceleration += 3;
+    ufoAcceleration -= 2;
+  }
 }
 
 function endScreen() {
@@ -260,6 +258,7 @@ function draw() {
   } else {
     endScreen();
   }
+  gameScreen();
 }
 
 //controls the switch between states
