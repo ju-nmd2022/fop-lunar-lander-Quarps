@@ -228,22 +228,21 @@ function startScreen() {
   text("Click space to start!!", width / 2 - 565, 200, 400);
 }
 
-let ufoSpeed = 300;
-let kitchenAcceleration = 300;
+let ufoY = 300;
+let kitchenY = 350;
+
+let accleration = 0.2;
+let speed = 2;
 
 function gameScreen() {
-  kitchen(kitchenAcceleration);
-  ufoUpgrade(700, ufoSpeed, 1, PI / 2);
-  console.log(ufoSpeed);
-  if (ufoSpeed > -100) {
-    kitchenAcceleration += 4;
-    ufoSpeed -= 2;
-  }
-
-  //if (ufoSpeed < -100) {
-  //  kitchenAcceleration -= 3;
-  //  ufoSpeed += 10;
+  kitchen(kitchenY);
+  ufoUpgrade(700, ufoY, 1, PI / 2);
+  //while (ufoY < 100) {
+  //  kitchenY -= speed;
+  //  ufoY += speed;
   //}
+
+  console.log(ufoY);
 }
 
 function endScreen() {
