@@ -228,28 +228,51 @@ function startScreen() {
   text("Click space to start!!", width / 2 - 565, 200, 400);
 }
 
-let ufoY = 300;
+let ufoY = 0;
 let kitchenY = 350;
+let accleration = 0.5;
+let speed = 5;
+let speedAcceleration = speed + accleration;
 
-let accleration = 0.2;
-let speed = 2;
-
+//gameScreen
 function gameScreen() {
   kitchen(kitchenY);
-  ufoUpgrade(700, ufoY, 1, PI / 2);
+  ufoUpgrade(700, ufoY, 0.9, PI / 2);
   //while (ufoY < 100) {
   //  kitchenY -= speed;
   //  ufoY += speed;
   //}
+  ufoY = ufoY + speedAcceleration;
 
-  console.log(ufoY);
+  if (keyIsDown(32)) {
+    ufoY -= speed + 5;
+  }
+  console.log(speedAcceleration);
 }
 
-function endScreen() {
-  background(0, 255, 0);
-  text("End", width / 2 - 25, height / 2);
+//endScreen
+function endScreenWin() {
+  kitchen(350);
+  ufo(410, 320, 3, 0.2);
+  background(50, 50, 50, 100);
+  fill(0, 0, 0);
+  textSize(50);
+  fill(0, 200, 50);
+  text("EPIC Game Big W", width / 2 - 600, 60, 300);
+  textSize(30);
+  text("Click space to start!!", width / 2 - 600, 200, 400);
 }
-
+function endScreenLose() {
+  kitchen(350);
+  ufo(410, 320, 3, 3.2);
+  background(100, 50, 50, 100);
+  fill(0, 0, 0);
+  textSize(90);
+  fill(200, 0, 0);
+  text("Noob... BIG L ", width / 2 - 340, 80, 380);
+  textSize(30);
+  text("Click space to start!!", width / 2 - 340, 300, 400);
+}
 //variable for the current state
 let state = "start";
 
@@ -260,9 +283,9 @@ function draw() {
   } else if (state === "game") {
     gameScreen();
   } else {
-    endScreen();
+    endScreenWin();
   }
-  gameScreen();
+  endScreenWin();
 }
 
 //controls the switch between states
