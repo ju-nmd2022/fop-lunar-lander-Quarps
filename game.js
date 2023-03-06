@@ -176,15 +176,16 @@ function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro) {
 function kitchen(y) {
   background(246, 232, 231);
   strokeWeight(2);
+  scale(0.9);
 
   //background
   fill(234, 216, 216);
 
   //window
   fill(240, 240, 240);
-  rect(630 + 50, y - 720, 640, 790);
+  rect(width / 2 + 30, y - 720, width / 2 - 30, 790);
   fill(223, 239, 243);
-  rect(650 + 50, y - 700, 600, 750);
+  rect(width / 2 + 50, y - 700, width / 2 - 70, 750);
 
   //countertop
   fill(191, 134, 115);
@@ -195,10 +196,10 @@ function kitchen(y) {
   fill(240, 240, 240);
   //cabinet rightside
   rect(-1, y + 475, width / 2, 1000);
-  rect(100, y + 560, width / 2 - 200, 1000 - 100, 5);
+  rect(100, y + 560, width / 2, 1000 - 100, 5);
   //cabinet leftside
   rect(width / 2 - 1, y + 475, width / 2, 1000);
-  rect(width / 2 + 100, y + 560, width / 2 - 200, 1000 - 100, 5);
+  rect(width / 2 + 100, y + 560, width / 2, 1000 - 100, 5);
 
   //shadow
   push();
@@ -223,32 +224,51 @@ function startScreen() {
   background(50, 50, 50, 100);
   fill(0, 0, 0);
   textSize(50);
-  text("Welcome to the EPIC Game", width / 2 - 565, 60, 400);
+  text("Welcome to the EPIC Game", width / 2 - 365, 60, 400);
   textSize(30);
-  text("Click space to start!!", width / 2 - 565, 200, 400);
+  text("Click space to start!!", width / 2 - 365, 200, 400);
 }
-
-let ufoY = 0;
+let ufoY = 310;
 let kitchenY = 350;
-let accleration = 0.5;
-let speed = 5;
-let speedAcceleration = speed + accleration;
-
+let accleration = 0.2;
+let speed = -0.4;
+let rotation = PI / 2;
+let velocity = speed + accleration;
 //gameScreen
 function gameScreen() {
-  kitchen(kitchenY);
-  ufoUpgrade(700, ufoY, 0.9, PI / 2);
-  //while (ufoY < 100) {
-  //  kitchenY -= speed;
-  //  ufoY += speed;
-  //}
-  ufoY = ufoY + speedAcceleration;
+  {
+    kitchen(kitchenY);
+    ufoUpgrade(width / 2 - 200, ufoY, 0.9, rotation);
+    ufoY = ufoY + velocity;
+    velocity += speed + accleration;
 
-  if (keyIsDown(32)) {
-    ufoY -= speed + 5;
+    if (ufoY < -100) {
+      speed = 0.4;
+    }
+    if (keyIsDown(32)) {
+      ufoY -= velocity;
+      accleration = 0;
+      velocity = 1;
+    }
+    console.log(velocity);
+    if (ufoY > 350 && velocity < 7) {
+      accleration = 0.2;
+      speed = -0.4;
+      state = "endScreenWin";
+      console.log(ufoY);
+      gameActive = false;
+    }
+    if (ufoY > 350 && velocity > 7) {
+      accleration = 0.2;
+      speed = -0.4;
+      velocity = speed + accleration;
+      state = "endScreenLose";
+      gameActive = false;
+    }
+    console.log(velocity);
   }
-  console.log(speedAcceleration);
 }
+console.log(velocity);
 
 //endScreen
 function endScreenWin() {
@@ -258,9 +278,9 @@ function endScreenWin() {
   fill(0, 0, 0);
   textSize(50);
   fill(0, 200, 50);
-  text("EPIC Game Big W", width / 2 - 600, 60, 300);
+  text("EPIC Game Big W", width / 2 - 365, 60, 300);
   textSize(30);
-  text("Click space to start!!", width / 2 - 600, 200, 400);
+  text("Click space to start!!", width / 2 - 365, 200, 400);
 }
 function endScreenLose() {
   kitchen(350);
@@ -269,9 +289,9 @@ function endScreenLose() {
   fill(0, 0, 0);
   textSize(90);
   fill(200, 0, 0);
-  text("Noob... BIG L ", width / 2 - 340, 80, 380);
+  text("Noob... BIG L ", width / 2 - 365, 80, 380);
   textSize(30);
-  text("Click space to start!!", width / 2 - 340, 300, 400);
+  text("Click space to start!!", width / 2 - 365, 300, 400);
 }
 //variable for the current state
 let state = "start";
@@ -282,19 +302,23 @@ function draw() {
     startScreen();
   } else if (state === "game") {
     gameScreen();
-  } else {
+  } else if (state === "endScreenWin") {
     endScreenWin();
+  } else if (state === "endScreenLose") {
+    endScreenLose();
   }
-  endScreenWin();
 }
 
 //controls the switch between states
 function keyPressed() {
-  if (state === "start" && keyCode === 32) {
+  if (state === "start" && keyCode === 27) {
     state = "game";
-  } else if (state === "end") {
-    state = "game";
+  } else if (state === "endScreenLose" && keyCode === 27) {
+    state = "start";
+  } else if (state === "endScreenWin" && keyCode === 27) {
+    state = "start";
   } else if (keyCode === 27) {
     state = "start";
   }
 }
+console.log(state);
