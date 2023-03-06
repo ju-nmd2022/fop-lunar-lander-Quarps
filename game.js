@@ -217,8 +217,26 @@ function kitchen(y) {
   rect(width / 2 + 35, y + 500, 15, 100);
 }
 
+let ufoY = -350;
+let kitchenY = 350;
+let accleration = 0.2;
+let speed = -0.4;
+let rotation = PI / 2;
+let velocity = speed + accleration;
+let gameActive = false;
+function resetGame() {
+  ufoY = 350;
+  kitchenY = 350;
+  accleration = 0.2;
+  speed = -0.4;
+  rotation = PI / 2;
+  velocity = speed + accleration;
+  gameActive = false;
+}
+
 //states
 function startScreen() {
+  resetGame();
   kitchen(350);
   ufo(20, 430, 1, 0);
   background(50, 50, 50, 100);
@@ -228,15 +246,9 @@ function startScreen() {
   textSize(30);
   text("Click space to start!!", width / 2 - 365, 200, 400);
 }
-let ufoY = 310;
-let kitchenY = 350;
-let accleration = 0.2;
-let speed = -0.4;
-let rotation = PI / 2;
-let velocity = speed + accleration;
 //gameScreen
 function gameScreen() {
-  {
+  if (gameActive) {
     kitchen(kitchenY);
     ufoUpgrade(width / 2 - 200, ufoY, 0.9, rotation);
     ufoY = ufoY + velocity;
@@ -250,13 +262,10 @@ function gameScreen() {
       accleration = 0;
       velocity = 1;
     }
-    console.log(velocity);
     if (ufoY > 350 && velocity < 7) {
       accleration = 0.2;
       speed = -0.4;
       state = "endScreenWin";
-      console.log(ufoY);
-      gameActive = false;
     }
     if (ufoY > 350 && velocity > 7) {
       accleration = 0.2;
@@ -265,10 +274,9 @@ function gameScreen() {
       state = "endScreenLose";
       gameActive = false;
     }
-    console.log(velocity);
+    // console.log(velocity);
   }
 }
-console.log(velocity);
 
 //endScreen
 function endScreenWin() {
@@ -313,6 +321,7 @@ function draw() {
 function keyPressed() {
   if (state === "start" && keyCode === 27) {
     state = "game";
+    gameActive = true;
   } else if (state === "endScreenLose" && keyCode === 27) {
     state = "start";
   } else if (state === "endScreenWin" && keyCode === 27) {
@@ -321,4 +330,3 @@ function keyPressed() {
     state = "start";
   }
 }
-console.log(state);
