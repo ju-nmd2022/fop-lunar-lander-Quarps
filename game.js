@@ -82,7 +82,7 @@ function ufo(xMicro, yMicro, sMicro, rotateMicro) {
 }
 
 //upgraded version of UFO(the microwave) visual drawing
-function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro) {
+function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro, thrust) {
   //microwave
 
   push();
@@ -174,7 +174,27 @@ function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro) {
   //opener
   rect(xMicro + 470, yMicro + 270, 90, 40, 3);
   pop();
+  console.log(xMicro, yMicro);
+  //row 179 to 196 is inspired work from Linus Isaksson
+  if (thrust) {
+    // head blowing air
 
+    fill(255, 20, 20);
+    ellipse(xMicro + 640, yMicro + 175, 50, 50);
+    push();
+    fill(0, 0, 0);
+    noStroke();
+    ellipse(xMicro + 650, yMicro + 165, 8);
+    ellipse(xMicro + 655, yMicro + 180, 20);
+    push();
+    strokeWeight(2);
+    stroke(255, 255, 255);
+    line(xMicro + 670, yMicro + 170 + 10, xMicro + 690, yMicro + 165 + 15);
+    line(xMicro + 670, yMicro + 165 + 10, xMicro + 690, yMicro + 158 + 15);
+    line(xMicro + 670, yMicro + 160 + 10, xMicro + 690, yMicro + 151 + 15);
+    line(xMicro + 670, yMicro + 155 + 10, xMicro + 690, yMicro + 151 - 7 + 15);
+    pop();
+  }
   pop();
 }
 //kitchen visual drawing
@@ -265,7 +285,7 @@ function gameScreen() {
   */
   if (gameActive) {
     kitchen(kitchenY);
-    ufoUpgrade(width / 2 - 200, ufoY, 0.9, rotation);
+    ufoUpgrade(width / 2 - 200, ufoY, 0.9, rotation, keyIsDown(32));
     ufoY = ufoY + velocity;
     velocity += speed + accleration;
 

@@ -94,22 +94,30 @@ function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro, thrust) {
 
   if (thrust) {
     // head blowing air
+    xThrust = xMicro;
+    yThrust = yMicro - 1050;
+    translate(0, 175);
+    rotate(PI / 2);
+    translate(0, -175);
     fill(255, 255, 255);
-    ellipse(xMicro + 640, yMicro + 175, 50, 50);
+    ellipse(xThrust, yThrust + 175, 50, 50);
     push();
     fill(0, 0, 0);
     noStroke();
-    ellipse(xMicro + 650, yMicro + 165, 8);
-    ellipse(xMicro + 655, yMicro + 180, 20);
+    ellipse(xThrust - 13, yThrust - 10 + 175, 8);
+    ellipse(xThrust + 3, yThrust - 15 + 175, 20);
+    pop();
+
     push();
     strokeWeight(1);
     stroke(255, 255, 255);
-    line(xMicro + 670, yMicro + 170 + 10, xMicro + 690, yMicro + 165 + 15);
-    line(xMicro + 670, yMicro + 165 + 10, xMicro + 690, yMicro + 158 + 15);
-    line(xMicro + 670, yMicro + 160 + 10, xMicro + 690, yMicro + 151 + 15);
-    line(xMicro + 670, yMicro + 155 + 10, xMicro + 690, yMicro + 151 - 7 + 15);
+    line(xThrust - 5, yThrust - 30 + 175, xThrust - 10, yThrust - 50 + 175);
+    line(xThrust, yThrust - 31 + 175, xThrust - 3, yThrust - 50 + 175);
+    line(xThrust + 4, yThrust - 31 + 175, xThrust + 6, yThrust - 50 + 175);
+    line(xThrust + 9, yThrust - 30 + 175, xThrust + 13, yThrust - 50 + 175);
     pop();
   }
   pop();
 }
-ufoUpgrade(0, 0, 1, 0, true);
+
+ufoUpgrade(200, 200, 0.2, 0, true);
