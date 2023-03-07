@@ -1,3 +1,4 @@
+//UFO (the microwave) visual drawing
 function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   //microwave
   push();
@@ -75,8 +76,7 @@ function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   pop();
 }
 
-ufo(200, 200, 1, 0);
-
+//upgraded version of UFO(the microwave) visual drawing
 function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro) {
   //microwave
 
@@ -148,7 +148,7 @@ function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro) {
   push();
   fill(50, 50, 50);
   rect(xMicro + 470, yMicro + 40, 90, 50, 3);
-
+  //number on the display
   fill(200, 100, 20);
   textSize(22);
   textStyle(BOLD);
@@ -172,7 +172,7 @@ function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro) {
 
   pop();
 }
-
+//kitchen visual drawing
 function kitchen(y) {
   background(246, 232, 231);
   strokeWeight(2);
@@ -217,6 +217,7 @@ function kitchen(y) {
   rect(width / 2 + 35, y + 500, 15, 100);
 }
 
+//important variables
 let ufoY = -350;
 let kitchenY = 350;
 let accleration = 0.2;
@@ -224,6 +225,9 @@ let speed = -0.4;
 let rotation = PI / 2;
 let velocity = speed + accleration;
 let gameActive = false;
+
+//reset functon,
+//this was big weird needed this cause the game didnt reset otherwise
 function resetGame() {
   ufoY = 350;
   kitchenY = 350;
@@ -234,7 +238,8 @@ function resetGame() {
   gameActive = false;
 }
 
-//states
+//all the screens
+//start screen
 function startScreen() {
   resetGame();
   kitchen(350);
@@ -248,6 +253,10 @@ function startScreen() {
 }
 //gameScreen
 function gameScreen() {
+  /*
+  gameActive was added before the resetgame function, 
+  as solution but it didnt solve the problem.
+  */
   if (gameActive) {
     kitchen(kitchenY);
     ufoUpgrade(width / 2 - 200, ufoY, 0.9, rotation);
@@ -301,6 +310,7 @@ function endScreenLose() {
   textSize(30);
   text("Click space to start!!", width / 2 - 365, 300, 400);
 }
+
 //variable for the current state
 let state = "start";
 
