@@ -175,7 +175,7 @@ function ufoUpgrade(xMicro, yMicro, sMicro, rotateMicro, thrust) {
   rect(xMicro + 470, yMicro + 270, 90, 40, 3);
   pop();
   console.log(xMicro, yMicro);
-  //row 179 to 196 is inspired work from Linus Isaksson
+  //row 179 to 196 is inspired work from Linus "Mungon" Isaksson
   if (thrust) {
     // head blowing air
 
