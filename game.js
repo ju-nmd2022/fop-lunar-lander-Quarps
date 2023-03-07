@@ -196,10 +196,10 @@ function kitchen(y) {
   fill(240, 240, 240);
   //cabinet rightside
   rect(-1, y + 475, width / 2, 1000);
-  rect(100, y + 560, width / 2, 1000 - 100, 5);
+  rect(100, y + 560, width / 2 - 200, 1000 - 100, 5);
   //cabinet leftside
   rect(width / 2 - 1, y + 475, width / 2, 1000);
-  rect(width / 2 + 100, y + 560, width / 2, 1000 - 100, 5);
+  rect(width / 2 + 100, y + 560, width / 2 - 200, 1000 - 100, 5);
 
   //shadow
   push();
@@ -251,7 +251,7 @@ function startScreen() {
   textSize(30);
   text("Click ESC to start!!", width / 2 - 365, 200, 400);
   textSize(30);
-  text("Use SPACE to control the thruster!!", width / 2 - 365, 250, 400);
+  text("Use SPACE to control the thruster!!", width / 2 - 365, 250, 350);
 }
 //gameScreen
 function gameScreen() {
