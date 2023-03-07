@@ -1,3 +1,8 @@
+function setup() {
+  createCanvas(1200, 850);
+  frameRate(30);
+  rotation = PI / 2;
+}
 //UFO (the microwave) visual drawing
 function ufo(xMicro, yMicro, sMicro, rotateMicro) {
   //microwave
@@ -222,7 +227,6 @@ let ufoY = -350;
 let kitchenY = 350;
 let accleration = 0.2;
 let speed = -0.4;
-let rotation = PI / 2;
 let velocity = speed + accleration;
 let gameActive = false;
 
@@ -299,7 +303,7 @@ function endScreenWin() {
   fill(0, 200, 50);
   text("EPIC Game Big W", width / 2 - 365, 60, 300);
   textSize(30);
-  text("Click space to start!!", width / 2 - 365, 200, 400);
+  text("Click ESC to start!!", width / 2 - 365, 200, 400);
 }
 function endScreenLose() {
   kitchen(350);
@@ -310,7 +314,7 @@ function endScreenLose() {
   fill(200, 0, 0);
   text("Noob... BIG L ", width / 2 - 365, 80, 380);
   textSize(30);
-  text("Click space to start!!", width / 2 - 365, 300, 400);
+  text("Click ESC to start!!", width / 2 - 365, 300, 400);
 }
 
 //variable for the current state
