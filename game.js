@@ -249,7 +249,9 @@ function startScreen() {
   textSize(50);
   text("Welcome to the EPIC Game", width / 2 - 365, 60, 400);
   textSize(30);
-  text("Click space to start!!", width / 2 - 365, 200, 400);
+  text("Click ESC to start!!", width / 2 - 365, 200, 400);
+  textSize(30);
+  text("Use SPACE to control the thruster!!", width / 2 - 365, 250, 400);
 }
 //gameScreen
 function gameScreen() {
